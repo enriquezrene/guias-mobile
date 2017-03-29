@@ -11,13 +11,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
+    final String baseUrl = "/guias/v1";
 
-    private Button buttonScan;
+    private Button buttonScan, buttonSend;
     private EditText editTextCode;
     private IntentIntegrator codeScanner;
 
@@ -29,12 +36,29 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         buttonScan = (Button) findViewById(R.id.buttonScan);
+        buttonSend = (Button) findViewById(R.id.buttonSend);
         editTextCode = (EditText) findViewById(R.id.editTextBarCode);
         codeScanner = new IntentIntegrator(this);
         buttonScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 codeScanner.initiateScan();
+            }
+        });
+        buttonSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference databaseReference = database.getReference(getFullUrl()).push();
+                    Map<String, Object> data = new HashMap<>();
+                    data.put("code", editTextCode.getText().toString());
+                    databaseReference.updateChildren(data);
+                    editTextCode.setText("");
+                    Toast.makeText(getBaseContext(), "Code sent successfully", Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(getBaseContext(), "An error happened", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -68,5 +92,17 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public String getFullUrl() {
+        return baseUrl + getRelativeUrl();
+    }
+
+    public String getRelativeUrl() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        return "/" + year + "/" + month + "/" + day;
     }
 }

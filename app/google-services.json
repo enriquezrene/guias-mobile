@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "253231686326",
+    "firebase_url": "https://quito-envia.firebaseio.com",
+    "project_id": "quito-envia",
+    "storage_bucket": "quito-envia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253231686326:android:0eff5bde98c16915",
+        "android_client_info": {
+          "package_name": "guias.quitoenvia.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253231686326-pjvnfhqvg6f1l306de9jlsb6n6c5r96p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI_cTas2SjBUZbVolyOVd9bmRcnFZNZAE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253231686326:android:b4507d1126f0a8df",
+        "android_client_info": {
+          "package_name": "guias.quitoenvia.com.guias_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253231686326-gbdkueemte71app59lvpafqpkjefnala.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "guias.quitoenvia.com.guias_mobile",
+            "certificate_hash": "efaece73348cee26a7d871edc427dec6cfd6f1c7"
+          }
+        },
+        {
+          "client_id": "253231686326-pjvnfhqvg6f1l306de9jlsb6n6c5r96p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI_cTas2SjBUZbVolyOVd9bmRcnFZNZAE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253231686326-pjvnfhqvg6f1l306de9jlsb6n6c5r96p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
